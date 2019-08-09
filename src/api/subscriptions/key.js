@@ -1,0 +1,1 @@
+export const UPDATED_KEY_ALL = 'UPDATED_KEY_ALL';
