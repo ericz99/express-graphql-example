@@ -6,6 +6,19 @@ Real world example of how to build an maintainable server & api design. This exa
 
 I seen a lot of good tutorial / guide on how to use these technology and it made me want to contribute to these tutorial / guide as well. So that is one of the reason why I decided to build a real world example of how to use these technology. I'm also hoping to spread my knowledge to others as well because I feel like doing this allows me, to learn more from my mistake and etc.
 
+# Table of contents
+
+<!--ts-->
+
+- [Installation](#installation)
+- [Configuration](#configuration)
+- [Usage](#usage)
+- [Examples](#example-of-queries-mutations--subscriptions)
+- [Features](#features)
+- [Built-with](#built-with)
+
+  <!--te-->
+
 ### Installation
 
 Express-Graphql-Example requires the following...
@@ -30,7 +43,17 @@ yarn run server
 # To run test
 yarn run test
 
-# Server runs on http://localhost:8080
+# Server runs on http://localhost:8080/graphql
+
+```
+
+## Usage
+
+```bash
+
+# Graphql endpoint
+Graphql endpoint run on http://localhost:8080/graphql
+
 
 ```
 
@@ -100,7 +123,7 @@ subscription
 - [Node.js (LTS Version)](http://nodejs.org/) - Backend framework used
 - [Graphql](https://graphql.org/) - API Framework used
 - [ApolloGrahpql](https://www.apollographql.com/) - API Framework that works on top of graphql
-- [MongoDB](https://www.mongodb.com/download-center/community) NOSQL Database used
+- [MongoDB](https://www.mongodb.com/download-center/community) - NOSQL Database used
 
 ## Bugs?
 
