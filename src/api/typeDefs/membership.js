@@ -26,6 +26,6 @@ export default gql`
     price: String!
     name: String!
     desc: String!
-    createdAt: Date!
+    createdAt: String!
   }
 `;

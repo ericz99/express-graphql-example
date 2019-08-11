@@ -9,7 +9,7 @@ export default gql`
     deactivateKey(Key: String!): Boolean!
 
     ## Generate key
-    generateKey(quantity: Number!): [Key!]!
+    generateKey(quantity: Int!): [Key!]!
   }
 
   extend type Query {
@@ -20,7 +20,7 @@ export default gql`
     getAllKey: [Key!]!
 
     ## Query key by membership type
-    getKeyByMembership(membership: Membership!): Key!
+    getKeyByMembership(type: String!): Key!
   }
 
   extend type Subscription {
@@ -34,10 +34,10 @@ export default gql`
     user: User!
     membership: Membership!
     isActive: Boolean!
-    expiredIn: Date!
-    expired: Date!
+    expiredIn: String!
+    expired: String!
     activated: Boolean!
-    activatedAt: Date!
-    createdAt: Date!
+    activatedAt: String!
+    createdAt: String!
   }
 `;
