@@ -1,6 +1,6 @@
 # Express-Graphql-Example
 
-Real world example of how to build an maintainable server & api design. This example will consist of good design pattern to follow, flow of how the application structure should be used, and most importantly how to implement these features in this example repo. Please read comments of the code to understand why I use it and etc.
+Real world example of how to build a maintainable server & api design. This example will consist of good design pattern to follow, flow of how the application structure should be used, and most importantly how to implement these features in this example repo. Please read comments of the code to understand why I use it and etc.
 
 ## Motivation
 
@@ -54,6 +54,7 @@ yarn run test
 # Graphql endpoint
 Graphql endpoint run on http://localhost:8080/graphql
 
+# See at below for example queries & mutation
 
 ```
 
@@ -66,7 +67,12 @@ Graphql endpoint run on http://localhost:8080/graphql
 MONGO_URI=xxx
 PORT=8080
 SESS_SECRET=ssh!secret!
+
+REDIS_HOST=localhost
+REDIS_PORT=6379
 REDIS_PASSWORD=secret
+
+SECRET_KEY=1231221412
 
 ```
 
@@ -75,7 +81,7 @@ REDIS_PASSWORD=secret
 ```
 
 # Query yourself
-query
+query {
     me {
         userID
         email
@@ -84,28 +90,32 @@ query
             expiredIn
         }
     }
+}
 
 # Query other user
-query
+query {
     getOneUser(userID: 1) {
         userID
         email
     }
+}
 
 
 # Mutation create user
-mutation
+mutation {
     saveUser(email: 'test@gmail.com', password: 'testpwd') {
         userID
         email
     }
+}
 
 # Keep track of realtime data with subscription
-subscription
+subscription {
     keyGenerated {
         key
         expiredIn
     }
+}
 
 ```
 
@@ -115,7 +125,8 @@ subscription
 - Subscription
 - Caching
 - Pagination
-- Deployment
+- Deployment w/ containerized docker
+- Custom Directives
 - and more...
 
 ## Built With
