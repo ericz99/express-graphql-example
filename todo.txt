@@ -1,0 +1,6 @@
+1. we need to authenitcate user, if they want to query or mutation some data
+2. only check if they are authenticated if they try to query or mutation data
+3. every sign in requires a new api key and token
+4. use custom directive that allows you to simplify code
+5. each query & mutation requires an api key or login user session because we can't allow unauthenticate user to use these 
+6. allow guest to use some endpoint query & mutation

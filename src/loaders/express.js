@@ -1,6 +1,8 @@
 import cors from 'cors';
 import helmet from 'helmet';
 
+import config, { IN_PROD } from '../config';
+
 /**
  * Your express configuration should be in the file
  */
