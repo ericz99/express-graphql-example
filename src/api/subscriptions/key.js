@@ -1,1 +1,1 @@
-export const UPDATED_KEY_ALL = 'UPDATED_KEY_ALL';
+export const GENERATED_KEYS = 'GENERATED_KEYS';
