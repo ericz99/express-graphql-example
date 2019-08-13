@@ -1,3 +1,5 @@
 import user from './user';
 
-export default [user];
+import key from './key';
+
+export default [user, key];
