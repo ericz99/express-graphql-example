@@ -128,15 +128,15 @@ subscription {
 ## Todo
 
 - [x] Fix subscription handling
-- [] clean some server code
-- [] add membership section code
-- [] reduce code by putting in its owner middlewares
-- [] fix user & admin route from clashing between mutations
-- [] add access_token for admin
-- [] add caching for production ready
-- [] add few more custom directives for keys & memberships
-- [] implement monitoring & loggin metrics
-- [] add proper integration testing
+- [ ] clean some server code
+- [ ] add membership section code
+- [ ] reduce code by putting in its owner middlewares
+- [ ] fix user & admin route from clashing between mutations
+- [ ] add access_token for admin
+- [ ] add caching for production ready
+- [ ] add few more custom directives for keys & memberships
+- [ ] implement monitoring & loggin metrics
+- [ ] add proper integration testing
 
 ## Built With
 
