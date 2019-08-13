@@ -1,15 +1,16 @@
 import express from 'express';
 import http from 'http';
-import { ApolloServer } from 'apollo-server-express';
+import { ApolloServer, AuthenticationError } from 'apollo-server-express';
 
 import typeDefs from './api/typeDefs';
 import resolvers from './api/resolvers';
+import schemaDirectives from './api/directives';
 
 // Config File
 import config, { IN_PROD } from './config';
 
 // Import auth checker
-import { checkAuthToken } from './middlewares';
+import { checkAuthToken, checkReqAuthToken } from './middlewares';
 
 // Starting function
 (async () => {
@@ -23,6 +24,7 @@ import { checkAuthToken } from './middlewares';
     const server = new ApolloServer({
       typeDefs,
       resolvers,
+      schemaDirectives,
       playground: !IN_PROD,
       formatError: err => {
         const customError = {
@@ -38,10 +40,34 @@ import { checkAuthToken } from './middlewares';
           ...err
         };
       },
-      context: async ({ req, res }) => {
-        if (req) {
+      subscriptions: {
+        onConnect: async (connectionParams, webSocket) => {
+          if (connectionParams['x-auth-token']) {
+            const token = connectionParams['x-auth-token'];
+            const me = await checkAuthToken(token, config.secretKey);
+            // if object exist
+            if (typeof me === 'object' && me) {
+              if (me.role !== 'ADMIN') {
+                throw new AuthenticationError('You are not authorized to view this resource.');
+              }
+
+              // return data
+              return {
+                me
+              };
+            }
+          }
+
+          throw new Error('Missing auth token!');
+        }
+      },
+      context: async ({ req, res, connection }) => {
+        if (connection) {
+          // check connection for metadata
+          return connection.context;
+        } else {
           // check for auth token
-          const me = await checkAuthToken(req, config.secretKey);
+          const me = await checkReqAuthToken(req, config.secretKey);
           // if object exist
           if (typeof me === 'object' && me) {
             // return data
@@ -52,7 +78,9 @@ import { checkAuthToken } from './middlewares';
             };
           }
 
-          return;
+          return {
+            req
+          };
         }
       }
     });
