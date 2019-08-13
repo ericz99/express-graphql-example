@@ -9,6 +9,7 @@ import config, { IN_PROD } from '../config';
 export default async app => {
   // for heroku and other cloud based service
   app.enable('trust proxy');
+  app.disable('x-powered-by');
   app.use(cors());
   app.use(helmet());
 };
