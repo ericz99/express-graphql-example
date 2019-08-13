@@ -38,7 +38,11 @@ const userSchema = new Schema({
       message: 'Email already been taken!'
     }
   },
+  role: { type: String, default: 'USER' },
   password: String,
+  accessToken: String,
+  resetPwdToken: String,
+  resetPwdExpiry: Date,
   createdAt: {
     type: Date,
     default: Date.now
