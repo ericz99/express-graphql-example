@@ -1,1 +1,1 @@
-export { default as checkAuthToken } from './checkAuth';
+export * from './checkAuth';
