@@ -1,12 +1,12 @@
-# Express-Graphql-Example
+# Express-Graphql-Example (NOT FINISHED)
 
-Real world example of how to build a maintainable server & api design. This example will consist of good design pattern to follow, flow of how the application structure should be used, and most importantly how to implement these features in this example repo. Please read comments of the code to understand why I use it and etc.
+Sample real world example of using express + graphql, and how to interact with the api.
 
 ## Motivation
 
-I seen a lot of good tutorial / guide on how to use these technology and it made me want to contribute to these tutorial / guide as well. So that is one of the reason why I decided to build a real world example of how to use these technology. I'm also hoping to spread my knowledge to others as well because I feel like doing this allows me, to learn more from my mistake and etc.
+I seen a lot of good tutorial / guide on how to use these technology and it made me want to contribute to these tutorial / guide as well. So that is one of the reason why I decided to build a real world example on how to use these technology. I'm also hoping to spread my knowledge to others as well because I feel like doing this allows me, to learn more from my mistake and etc.
 
-# Table of contents
+## Table of contents
 
 <!--ts-->
 
@@ -38,10 +38,7 @@ git clone https://github.com/ericz99/express-graphql-example.git or download zip
 yarn install
 
 # To start server
-yarn run server
-
-# To run test
-yarn run test
+yarn run dev
 
 # Server runs on http://localhost:8080/graphql
 
@@ -55,6 +52,7 @@ yarn run test
 Graphql endpoint run on http://localhost:8080/graphql
 
 # See at below for example queries & mutation
+Before you start querying, I have added role permission, so some queries or mutations requires an "ADMIN" permission level.
 
 ```
 
@@ -124,10 +122,21 @@ subscription {
 - Authentication / Authorization
 - Subscription
 - Caching
-- Pagination
-- Deployment w/ containerized docker
 - Custom Directives
 - and more...
+
+## Todo
+
+- [x] Fix subscription handling
+- [] clean some server code
+- [] add membership section code
+- [] reduce code by putting in its owner middlewares
+- [] fix user & admin route from clashing between mutations
+- [] add access_token for admin
+- [] add caching for production ready
+- [] add few more custom directives for keys & memberships
+- [] implement monitoring & loggin metrics
+- [] add proper integration testing
 
 ## Built With
 
