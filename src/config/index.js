@@ -21,6 +21,7 @@ export default {
   redisPort: process.env.REDIS_PORT,
   redisHost: process.env.REDIS_HOST,
   redisPass: process.env.REDIS_PASS,
+  ownerKey: process.env.OWNER_KEY,
   api: {
     prefix: '/graphql'
   }
